@@ -12,8 +12,7 @@ public class WikipediaSimpleTest {
 
 	@Test
 	public void test_Wikipedia_with_KHL_results () {
-		System.setProperty("webdriver.chrome.driver", "/Applications/chromedriver");
-		WebDriver driver = new ChromeDriver();
+		WebDriver driver = DriverHelper.getDriver();
         driver.get("http://en.wikipedia.org/wiki/Main_Page");
         
         WebElement searchField = driver.findElement(By.id("searchInput"));

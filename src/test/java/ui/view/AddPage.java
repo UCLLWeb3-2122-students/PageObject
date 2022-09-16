@@ -21,7 +21,7 @@ public class AddPage extends Page {
 
     public AddPage (WebDriver driver) {
         super(driver);
-        this.driver.get(getPath()+"add.jsp");
+        this.driver.get(Config.BASE_URL+"add.jsp");
     }
 
     public void setFirstName(String firstName) {

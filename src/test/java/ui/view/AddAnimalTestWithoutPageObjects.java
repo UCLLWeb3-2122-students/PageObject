@@ -15,16 +15,11 @@ import static org.junit.Assert.assertTrue;
 
 public class AddAnimalTestWithoutPageObjects {
 	private WebDriver driver;
-	private String url = "http://localhost:8080/";
-	
+
 	@Before
 	public void setUp() {
-		//System.setProperty("webdriver.chrome.driver", "/Users/.../web3pers/chromedriver");
-			// windows: gebruik dubbele \\ om pad aan te geven
-			// hint: zoek een werkende test op van web 2 ...
-		System.setProperty("webdriver.chrome.driver", "/Applications/chromedriver");
-		driver = new ChromeDriver();
-		driver.get(url +"add.jsp");
+		driver = DriverHelper.getDriver();
+		driver.get(Config.BASE_URL +"add.jsp");
 	}
 	
 	@After
@@ -36,7 +31,7 @@ public class AddAnimalTestWithoutPageObjects {
 	public void given_allFieldsFilledInCorrectly_when_animalAdded_then_animalIsAdded() {
 		submitForm("Blub", "Vis", "3");
 
-		driver.get(url +"Controller?command=Overview");
+		driver.get(Config.BASE_URL +"Controller?command=Overview");
 		String title = driver.getTitle();
 		assertEquals("Bekijk alle dieren", title);
 

@@ -13,16 +13,10 @@ import static org.junit.Assert.assertTrue;
 public class AddAnimalTest {
 
 	private WebDriver driver;
-	private String url = "http://localhost:8080/";
-	
+
 	@Before
 	public void setUp() {
-		//System.setProperty("webdriver.chrome.driver", "/Users/.../web3pers/chromedriver");
-			// windows: gebruik dubbele \\ om pad aan te geven
-			// hint: zoek een werkende test op van web 2 ...
-		System.setProperty("webdriver.chrome.driver", "/Applications/chromedriver");
-		driver = new ChromeDriver();
-		driver.get(url +"add.jsp");
+		driver = DriverHelper.getDriver();
 	}
 	
 	@After
